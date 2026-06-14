@@ -1,0 +1,17 @@
+{
+  "name": "completito-functions",
+  "version": "1.0.0",
+  "description": "Firebase Functions - TUU Pago Online para El Completito Hualpén",
+  "main": "index.js",
+  "engines": { "node": "22" },
+  "dependencies": {
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^7.2.5"
+  },
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell"
+  },
+  "private": true
+}

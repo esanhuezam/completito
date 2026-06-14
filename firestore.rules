@@ -1,0 +1,15 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Catálogo de la tienda: lectura pública, escritura solo desde el panel admin
+    // (que usa la app; en producción conviene protegerlo con Auth).
+    match /tienda/{docId} {
+      allow read: if true;
+      allow write: if true;
+    }
+    // Pedidos: solo las Functions (admin SDK) escriben. La app no lee/escribe directo.
+    match /pedidos/{pedidoId} {
+      allow read, write: if false;
+    }
+  }
+}
